@@ -1,0 +1,8 @@
+spring:
+  data:
+    cassandra:
+      contact-points: mycassandra
+      port: 9042
+      keyspace-name: memories
+      entity-base-package: com.example.cassandra.memories.model
+
