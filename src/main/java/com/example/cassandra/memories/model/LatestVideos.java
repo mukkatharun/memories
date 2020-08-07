@@ -1,20 +1,24 @@
 package com.example.cassandra.memories.model;
 
-import com.example.cassandra.memories.KeysHelper.VideosByUserKey;
+import com.example.cassandra.memories.KeysHelper.LatestVideosKey;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
-@Table("videos_by_user")
+import java.util.UUID;
+
 @Data
-@NoArgsConstructor
+@Table("latest_videos")
 @AllArgsConstructor
-public class VideosByUser {
+@NoArgsConstructor
+public class LatestVideos {
 
     @PrimaryKey
-    private VideosByUserKey videosByUserKey;
+    private LatestVideosKey latestVideosKey;
 
     private String name;
+
+    private UUID user_id;
 }

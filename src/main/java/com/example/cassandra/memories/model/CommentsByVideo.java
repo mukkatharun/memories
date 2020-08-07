@@ -1,20 +1,24 @@
 package com.example.cassandra.memories.model;
 
-import com.example.cassandra.memories.KeysHelper.VideosByUserKey;
+import com.example.cassandra.memories.KeysHelper.CommentsByVideoKey;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
-@Table("videos_by_user")
+import java.util.UUID;
+
+@Table("comments_by_video")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class VideosByUser {
+public class CommentsByVideo {
 
     @PrimaryKey
-    private VideosByUserKey videosByUserKey;
+    private CommentsByVideoKey commentsByVideoKey;
 
-    private String name;
+    private String comment;
+
+    private UUID user_id;
 }

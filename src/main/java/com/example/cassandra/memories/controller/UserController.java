@@ -14,15 +14,15 @@ public class UserController {
     @Autowired
     UsersRepository usersRepository;
 
-    @PostMapping("/users")
-    public Users addProduct(@RequestBody Users user){
-        usersRepository.save(user);
-        return user;
-    }
-
     @GetMapping("/users")
-    public List<Users> getProducts(){
+    public List<Users> getUsers(){
 
         return usersRepository.findAll();
+    }
+    
+    @PostMapping("/users")
+    public Users addUser(@RequestBody Users user){
+        usersRepository.save(user);
+        return user;
     }
 }
