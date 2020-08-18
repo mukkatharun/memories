@@ -2,6 +2,7 @@ package com.example.cassandra.memories.KeysHelper;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.cassandra.core.cql.Ordering;
 import org.springframework.data.cassandra.core.mapping.PrimaryKeyClass;
 import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
@@ -13,6 +14,7 @@ import java.util.UUID;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @PrimaryKeyClass
 public class VideosByUserKey implements Serializable {
 
@@ -24,5 +26,4 @@ public class VideosByUserKey implements Serializable {
 
     @PrimaryKeyColumn(ordinal = 2, type = PrimaryKeyType.CLUSTERED, ordering = Ordering.ASCENDING)
     private UUID video_id;
-
 }

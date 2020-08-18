@@ -1,12 +1,10 @@
 package com.example.cassandra.memories.controller;
 
+import com.example.cassandra.memories.KeysHelper.CommentsByVideoKey;
 import com.example.cassandra.memories.model.CommentsByVideo;
 import com.example.cassandra.memories.repository.CommentsByVideoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,8 +22,20 @@ public class CommentsByVideoController {
     }
 
     @PostMapping("/commentsbyvideo")
-    public CommentsByVideo addCommentsByVideo(CommentsByVideo commentsByVideo){
+    public CommentsByVideo addCommentsByVideo(@RequestBody CommentsByVideo commentsByVideo){
         commentsByVideoRepository.save(commentsByVideo);
         return commentsByVideo;
+    }
+
+    @PutMapping("/commentsbyvideo")
+    public CommentsByVideo updateCommentsByVideo(@RequestBody CommentsByVideo commentsByVideo){
+        commentsByVideoRepository.save(commentsByVideo);
+        return commentsByVideo;
+    }
+
+    @DeleteMapping("/commentsbyvideo")
+    public boolean deleteCommentsByVideo(@RequestBody CommentsByVideoKey commentsByVideoKey){
+        commentsByVideoRepository.deleteById(commentsByVideoKey);
+        return true;
     }
 }

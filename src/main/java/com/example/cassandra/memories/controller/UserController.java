@@ -19,9 +19,15 @@ public class UserController {
 
         return usersRepository.findAll();
     }
-    
+
     @PostMapping("/users")
     public Users addUser(@RequestBody Users user){
+        usersRepository.save(user);
+        return user;
+    }
+
+    @PutMapping("/users")
+    public Users updateUser(@RequestBody Users user){
         usersRepository.save(user);
         return user;
     }
