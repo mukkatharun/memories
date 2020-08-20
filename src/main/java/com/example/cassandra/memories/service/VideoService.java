@@ -47,7 +47,7 @@ public class VideoService {
         VideosByUserKey videosByUserKey = new VideosByUserKey();
         VideosByUser videosByUser = new VideosByUser();
 
-        videosByUserKey.setUser_id(video.getUser_id());
+        videosByUserKey.setUserid(video.getUser_id());
         videosByUserKey.setAdded_date(added_date);
         videosByUserKey.setVideo_id(video_id);
 
@@ -79,7 +79,7 @@ public class VideoService {
         // deletion of video in videos by user table
         VideosByUserKey videosByUserKey = new VideosByUserKey();
         videosByUserKey.setVideo_id(video.getVideo_id());
-        videosByUserKey.setUser_id(video.getUser_id());
+        videosByUserKey.setUserid(video.getUser_id());
         videosByUserKey.setAdded_date(video.getDate_added());
         videosByUserRepository.deleteById(videosByUserKey);
 

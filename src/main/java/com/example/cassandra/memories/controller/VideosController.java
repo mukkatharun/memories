@@ -4,9 +4,12 @@ import com.example.cassandra.memories.model.Videos;
 import com.example.cassandra.memories.repository.VideosRepository;
 import com.example.cassandra.memories.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/")
@@ -19,13 +22,28 @@ public class VideosController {
     private VideoService videoService;
 
     @GetMapping("/videos")
-    public List<Videos> getVideos(){
-        return videosRepository.findAll();
+    public ResponseEntity<List<Videos>> getVideos(){
+        List<Videos> videos = videosRepository.findAll();
+        return Optional.ofNullable(videos)
+                .map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+                .orElse(ResponseEntity.noContent().build());
     }
 
     @PostMapping("/videos")
     public Videos addVideos(@RequestBody Videos videos){
         videoService.addVideo(videos);
         return videos;
+    }
+
+    @DeleteMapping("/videos")
+    public boolean deleteVideosByUser(@RequestBody Videos video)
+    {
+        try{
+            videoService.deleteVideo(video);
+        }
+        catch (Exception ex){
+            return false;
+        }
+        return true;
     }
 }

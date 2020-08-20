@@ -4,9 +4,12 @@ import com.example.cassandra.memories.KeysHelper.CommentsByVideoKey;
 import com.example.cassandra.memories.model.CommentsByVideo;
 import com.example.cassandra.memories.repository.CommentsByVideoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -16,26 +19,41 @@ public class CommentsByVideoController {
     CommentsByVideoRepository commentsByVideoRepository;
 
     @GetMapping("/commentsbyvideo")
-    public List<CommentsByVideo> getCommentsByVideo()
+    public ResponseEntity<List<CommentsByVideo>> getCommentsByVideo()
     {
-        return commentsByVideoRepository.findAll();
+        List<CommentsByVideo> comments = commentsByVideoRepository.findAll();
+        return Optional.ofNullable(comments)
+                .map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+                .orElse(ResponseEntity.noContent().build());
     }
 
     @PostMapping("/commentsbyvideo")
-    public CommentsByVideo addCommentsByVideo(@RequestBody CommentsByVideo commentsByVideo){
-        commentsByVideoRepository.save(commentsByVideo);
-        return commentsByVideo;
+    public ResponseEntity<CommentsByVideo> addCommentsByVideo(@RequestBody CommentsByVideo commentsByVideo){
+        CommentsByVideo comment = commentsByVideoRepository.save(commentsByVideo);
+        return Optional.ofNullable(comment)
+                .map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+                .orElse(ResponseEntity.noContent().build());
     }
 
     @PutMapping("/commentsbyvideo")
-    public CommentsByVideo updateCommentsByVideo(@RequestBody CommentsByVideo commentsByVideo){
+    public ResponseEntity<String> updateCommentsByVideo(@RequestBody CommentsByVideo commentsByVideo){
+        if(commentsByVideo.getUser_id() == null || commentsByVideo.getCommentsByVideoKey().getComment_id() == null
+                || commentsByVideo.getCommentsByVideoKey().getVideo_id() == null)
+        {
+            return ResponseEntity.badRequest().body("Update Error, one of the ID is missing");
+        }
         commentsByVideoRepository.save(commentsByVideo);
-        return commentsByVideo;
+        return new ResponseEntity<>("Comment Updated", HttpStatus.OK);
     }
 
     @DeleteMapping("/commentsbyvideo")
     public boolean deleteCommentsByVideo(@RequestBody CommentsByVideoKey commentsByVideoKey){
-        commentsByVideoRepository.deleteById(commentsByVideoKey);
+        try{
+            commentsByVideoRepository.deleteById(commentsByVideoKey);
+        }
+        catch (Exception ex){
+            return false;
+        }
         return true;
     }
 }

@@ -1,0 +1,48 @@
+//Create KeySpace name "memories"
+
+CREATE KEYSPACE memories WITH replication = {'class': 'SimpleStrategy', 'replication_factor': '1'}
+ AND durable_writes = true;
+
+//Tables
+
+CREATE TABLE memories.users (
+    user_id uuid PRIMARY KEY,
+    email text,
+    fname text,
+    lname text,
+    user_joined timestamp
+)
+
+CREATE TABLE memories.videos (
+    video_id uuid PRIMARY KEY,
+    date_added timestamp,
+    description text,
+    location text,
+    name text,
+    user_id uuid
+)
+
+CREATE TABLE memories.latest_videos (
+    yyyymdamdd text,
+    date_added timestamp,
+    video_id uuid,
+    name text,
+    users_id uuid,
+    PRIMARY KEY (yyyymmdd, date_added, video_id)
+) WITH CLUSTERING ORDER BY (date_added DESC)
+
+CREATE TABLE memories.videos_by_user (
+    user_id uuid,
+    added_date timestamp,
+    video_id uuid,
+    name text,
+    PRIMARY KEY (user_id, added_date, video_id)
+) WITH CLUSTERING ORDER BY (added_date DESC)
+
+CREATE TABLE memories.comments_by_video (
+    video_id uuid,
+    comment_id timeuuid,
+    comment text,
+    user_id uuid,
+    PRIMARY KEY (video_id, comment_id)
+) WITH CLUSTERING ORDER BY (comment_id DESC)
