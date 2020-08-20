@@ -1,6 +1,9 @@
 # memories
 A video sharing application
 
+# Data Model
+please find the chebotko diagram in the root directory.
+
 # Using Docker
 1. Start the docker
 2. navigate to project folder
@@ -14,3 +17,9 @@ Please run the scripts from scripts.txt in the cassandra terminal
 
 # Run the application in any IDE
 Either Run the MemoriesApplication in GUI of any IDE or use "mvn spring-boot:run" command in terminal if maven is installed locally.
+
+# Mock data
+Please find the mockdata.txt file and post them using postman.
+
+# Documentation
+please go through the document.txt to get an idea of all the models, desriptions, endpoints.
