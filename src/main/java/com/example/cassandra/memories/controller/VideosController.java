@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("api/")
@@ -29,14 +30,25 @@ public class VideosController {
                 .orElse(ResponseEntity.noContent().build());
     }
 
+    @GetMapping("/videos/{id}")
+    public ResponseEntity<Optional<Videos>> getVideo(@PathVariable("id")UUID videoid){
+        Optional<Videos> videos = videosRepository.findById(videoid);
+        return Optional.ofNullable(videos)
+                .map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+                .orElse(ResponseEntity.noContent().build());
+    }
+
     @PostMapping("/videos")
-    public Videos addVideos(@RequestBody Videos videos){
-        videoService.addVideo(videos);
-        return videos;
+    public ResponseEntity<Videos> addVideos(@RequestBody Videos video){
+        Videos newVideo = videoService.addVideo(video);
+
+        return Optional.ofNullable(newVideo)
+                .map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+                .orElse(ResponseEntity.noContent().build());
     }
 
     @DeleteMapping("/videos")
-    public boolean deleteVideosByUser(@RequestBody Videos video)
+    public boolean deleteVideo(@RequestBody Videos video)
     {
         try{
             videoService.deleteVideo(video);

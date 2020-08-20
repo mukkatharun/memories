@@ -33,24 +33,4 @@ public class VideosByUserController {
                 .map(result -> new ResponseEntity<>(result, HttpStatus.OK))
                 .orElse(ResponseEntity.noContent().build());
     }
-
-    @PostMapping("/videosbyuser")
-    public ResponseEntity<Videos> addVideosByUser(@RequestBody Videos video){
-        Videos addVideo = videoService.addVideo(video);
-        return Optional.ofNullable(addVideo)
-                .map(result -> new ResponseEntity<>(result, HttpStatus.OK))
-                .orElse(ResponseEntity.noContent().build());
-    }
-
-    @DeleteMapping("/videosbyuser")
-    public boolean deleteVideosByUser(@RequestBody Videos video)
-    {
-        try{
-            videoService.deleteVideo(video);
-        }
-        catch (Exception ex){
-            return false;
-        }
-        return true;
-    }
 }

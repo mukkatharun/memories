@@ -29,6 +29,7 @@ public class CommentsByVideoController {
 
     @PostMapping("/commentsbyvideo")
     public ResponseEntity<CommentsByVideo> addCommentsByVideo(@RequestBody CommentsByVideo commentsByVideo){
+
         CommentsByVideo comment = commentsByVideoRepository.save(commentsByVideo);
         return Optional.ofNullable(comment)
                 .map(result -> new ResponseEntity<>(result, HttpStatus.OK))
@@ -36,14 +37,12 @@ public class CommentsByVideoController {
     }
 
     @PutMapping("/commentsbyvideo")
-    public ResponseEntity<String> updateCommentsByVideo(@RequestBody CommentsByVideo commentsByVideo){
-        if(commentsByVideo.getUser_id() == null || commentsByVideo.getCommentsByVideoKey().getComment_id() == null
-                || commentsByVideo.getCommentsByVideoKey().getVideo_id() == null)
-        {
-            return ResponseEntity.badRequest().body("Update Error, one of the ID is missing");
-        }
-        commentsByVideoRepository.save(commentsByVideo);
-        return new ResponseEntity<>("Comment Updated", HttpStatus.OK);
+    public ResponseEntity<CommentsByVideo> updateCommentsByVideo(@RequestBody CommentsByVideo commentsByVideo){
+        CommentsByVideo newCommentsByVideo = commentsByVideoRepository.save(commentsByVideo);
+
+        return Optional.ofNullable(newCommentsByVideo)
+                .map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+                .orElse(ResponseEntity.noContent().build());
     }
 
     @DeleteMapping("/commentsbyvideo")

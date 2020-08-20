@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -37,6 +38,9 @@ public class UserController {
 
     @PostMapping("/users")
     public ResponseEntity<Users> addUser(@RequestBody Users user){
+        user.setUser_id(UUID.randomUUID());
+        user.setUser_joined(new Timestamp(System.currentTimeMillis()));
+
         Users newUser = usersRepository.save(user);
         return Optional.ofNullable(newUser)
                 .map(result -> new ResponseEntity<>(result, HttpStatus.OK))
@@ -51,8 +55,8 @@ public class UserController {
                 .orElse(ResponseEntity.noContent().build());
     }
 
-    @DeleteMapping("/users")
-    public boolean deleteUser(@RequestBody UUID user_id){
+    @DeleteMapping("/users/{id}")
+    public boolean deleteUser(@PathVariable("id") UUID user_id){
         try{
             usersRepository.deleteById(user_id);
         }
