@@ -47,6 +47,15 @@ public class VideosController {
                 .orElse(ResponseEntity.noContent().build());
     }
 
+    @PutMapping("/videos")
+    public ResponseEntity<Videos> updateVideos(@RequestBody Videos video){
+        Videos newVideo = videoService.updatevideo(video);
+
+        return Optional.ofNullable(newVideo)
+                .map(result -> new ResponseEntity<>(result, HttpStatus.OK))
+                .orElse(ResponseEntity.noContent().build());
+    }
+
     @DeleteMapping("/videos")
     public boolean deleteVideo(@RequestBody Videos video)
     {

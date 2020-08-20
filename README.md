@@ -21,5 +21,8 @@ Either Run the MemoriesApplication in GUI of any IDE or use "mvn spring-boot:run
 # Mock data
 Please find the mockdata.txt file and post them using postman.
 
+# Postman Collection
+I am adding the collection JSON (memories.postman_collection.json). Just import this into Postman and you can find all the API requests.
+
 # Documentation
-please go through the document.txt to get an idea of all the models, desriptions, endpoints.
+please go through the document.md to get an idea of all the models, desriptions, endpoints.

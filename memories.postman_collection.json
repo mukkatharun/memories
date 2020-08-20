@@ -1,0 +1,529 @@
+{
+	"info": {
+		"_postman_id": "9d9c7e74-da04-4521-ac2b-273f2b41b025",
+		"name": "memories",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Add User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"tharun@gmail.com\",\n    \"fname\": \"T\",\n    \"lname\": \"M\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by user id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users/15bb239c-a9ff-4a9a-9e36-3b58ef6b1580",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"15bb239c-a9ff-4a9a-9e36-3b58ef6b1580"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": \"15bb239c-a9ff-4a9a-9e36-3b58ef6b1580\",\n    \"email\": \"tharunm@gmail.com\",\n    \"fname\": \"T\",\n    \"lname\": \"M\",\n    \"user_joined\": \"2020-08-20T07:32:51.656+00:00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"video_id\": \"71d936b9-79d0-4933-85a3-a643861d4811\",\n    \"date_added\": \"2020-08-17T04:00:27.538+00:00\",\n    \"description\": \"Sadhguru answers a question about the Ram Janmabhumi in Ayodhya, and speaks about the laying of the foundation stone for the temple and its significance for the people of India\",\n    \"location\": \"https://www.youtube.com/watch?v=w0l7ZWFcEMQ\",\n    \"name\": \"Why Building The Ram Temple Matters - Sadhguru\",\n    \"user_id\": \"f2669e0c-8400-4bc2-a320-21841dd18a70\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/users/15bb239c-a9ff-4a9a-9e36-3b58ef6b1580",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"users",
+								"15bb239c-a9ff-4a9a-9e36-3b58ef6b1580"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "videos",
+			"item": [
+				{
+					"name": "Get Videos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/videos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"videos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Videos by video id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/videos/ed38d2cd-01ca-4046-a378-cb80af66303b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"videos",
+								"ed38d2cd-01ca-4046-a378-cb80af66303b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Video",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"hey i am checking 100th\",\n    \"location\": \"https://www.youtube.com/watch?v=w0l7ZWFcEMQ\",\n    \"name\": \"check 100\",\n    \"user_id\": \"f2669e0c-8400-4bc2-a320-21841dd18b90\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/videos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"videos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete video",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"video_id\": \"30500fdf-d40d-47fb-a2bd-cd03a1b1bd58\",\n    \"date_added\": \"2020-08-20T08:02:25.391+00:00\",\n    \"description\": \"hey i am checking\",\n    \"location\": \"https://www.youtube.com/watch?v=w0l7ZWFcEMQ\",\n    \"name\": \"check 2\",\n    \"user_id\": \"f2669e0c-8400-4bc2-a320-21841dd18b90\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/videos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"videos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Video Name or description",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"video_id\": \"0427e6b4-5b41-4902-92df-1b66fe8f23de\",\n    \"date_added\": \"2020-08-20T17:05:04.341+00:00\",\n    \"description\": \"hey i am checking 102th\",\n    \"location\": \"https://www.youtube.com/watch?v=w0l7ZWFcEMQ\",\n    \"name\": \"check 102\",\n    \"user_id\": \"f2669e0c-8400-4bc2-a320-21841dd18b90\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/videos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"videos"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "LatestVideos",
+			"item": [
+				{
+					"name": "Get latest Videos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/latestvideos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"latestvideos"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "VideosByUser",
+			"item": [
+				{
+					"name": "Get  Videos by user id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/videosbyuser/f2669e0c-8400-4bc2-a320-21841dd18b90",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"videosbyuser",
+								"f2669e0c-8400-4bc2-a320-21841dd18b90"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "CommentsByVideo",
+			"item": [
+				{
+					"name": "Get Comments By Video",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/commentsbyvideo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"commentsbyvideo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Comment of Video",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"commentsByVideoKey\": {\n        \"video_id\": \"20499235-b33e-4e8c-addf-c19e19e7b802\",\n        \"comment_id\": \"943b7ba8-e1de-11ea-87d0-0242ac130003\"\n    },\n    \"comment\": \"hi this is the 2nd checks\",\n    \"user_id\": \"db075906-1cd3-4d9d-be64-1166a0292ada\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/commentsbyvideo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"commentsbyvideo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Comment to Video",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"commentsByVideoKey\": {\n        \"video_id\": \"20499235-b33e-4e8c-addf-c19e19e7b802\"\n    },\n    \"comment\": \"hi this is third comment\",\n    \"user_id\": \"db075906-1cd3-4d9d-be64-1166a0292ada\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/commentsbyvideo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"commentsbyvideo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Comment of Video",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"video_id\": \"20499235-b33e-4e8c-addf-c19e19e7b812\",\n    \"comment_id\": \"943b7ba8-e1de-11ea-87d0-0242ac130103\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/commentsbyvideo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"commentsbyvideo"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

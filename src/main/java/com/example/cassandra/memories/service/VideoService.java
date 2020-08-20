@@ -32,13 +32,11 @@ public class VideoService {
     @Autowired
     LatestVideosRepository latestVideosRepository;
 
-    private UUID video_id;
-    private Timestamp added_date;
-
     public Videos addVideo(Videos video)
     {
-        video_id = UUID.randomUUID();
-        added_date = new Timestamp(System.currentTimeMillis());
+        UUID video_id = UUID.randomUUID();
+        Timestamp added_date = new Timestamp(System.currentTimeMillis());
+
         video.setVideo_id(video_id);
         video.setDate_added(added_date);
         videosRepository.save(video);
@@ -71,6 +69,39 @@ public class VideoService {
         return video;
     }
 
+    public Videos updatevideo(Videos video){
+
+        // Updating videos table
+        videosRepository.save(video);
+
+        //Forming data object and updating it for videos by user table
+        VideosByUserKey videosByUserKey = new VideosByUserKey();
+        VideosByUser videosByUser = new VideosByUser();
+
+        videosByUserKey.setUserid(video.getUser_id());
+        videosByUserKey.setAdded_date(video.getDate_added());
+        videosByUserKey.setVideo_id(video.getVideo_id());
+
+        videosByUser.setName(video.getName());
+        videosByUser.setVideosByUserKey(videosByUserKey);
+        videosByUserRepository.save(videosByUser);
+
+        //Forming data object and updating it for videos by latest videos table
+        LatestVideos latestVideos = new LatestVideos();
+        LatestVideosKey latestVideosKey = new LatestVideosKey();
+
+        latestVideosKey.setVideo_id(video.getVideo_id());
+        latestVideosKey.setDate_added(video.getDate_added());
+        latestVideosKey.setYyyymmdd(new SimpleDateFormat("yyyyMMdd").format(video.getDate_added()));
+
+        latestVideos.setLatestVideosKey(latestVideosKey);
+        latestVideos.setName(video.getName());
+        latestVideos.setUser_id(video.getUser_id());
+        latestVideosRepository.save(latestVideos);
+
+        return video;
+    }
+
     public boolean deleteVideo(Videos video)
     {
         // deletion of video in videos table
@@ -89,6 +120,7 @@ public class VideoService {
         latestVideosKey.setDate_added(video.getDate_added());
         latestVideosKey.setVideo_id(video.getVideo_id());
         latestVideosRepository.deleteById(latestVideosKey);
+
         return true;
     }
 
