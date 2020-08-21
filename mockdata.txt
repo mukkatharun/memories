@@ -1,2 +1,84 @@
-for user table
+Please use this mock data as reference while testing
 
+USER Table
+
+POST call
+
+{
+    "email": "Datastax@gmail.com",
+    "fname": "Cassandra",
+    "lname": "Datastax"
+}
+
+PUT call
+
+{
+    "user_id": "15bb239c-a9ff-4a9a-9e36-3b58ef6b1580",
+    "email": "tharunm@gmail.com",
+    "fname": "T",
+    "lname": "M",
+    "user_joined": "2020-08-20T07:32:51.656+00:00"
+}
+
+VIDEOS Table
+
+POST call
+
+{
+    "description": "During this 2H session you will implement a todo application REST backend for Apache Cassandra in JAVA",
+    "location": "https://www.youtube.com/watch?v=KAcZg6l9QTw&list=PLm-EPIkBI3Yql-SrSqqr6K5X1LSeO5btC&index=2",
+    "name": "Developer Workshop - Building Java MicroServices for Apache Cassandra (6/17)",
+    "user_id": "f2669e0c-8400-4bc2-a320-21841dd18b90"
+}
+
+PUT call
+
+{
+    "video_id": "0427e6b4-5b41-4902-92df-1b66fe8f23de",
+    "date_added": "2020-08-20T17:05:04.341+00:00",
+    "description": "hey i am checking 102th",
+    "location": "https://www.youtube.com/watch?v=w0l7ZWFcEMQ",
+    "name": "DATASTAX Developer Workshop - Building Java MicroServices for Apache Cassandra (6/17)",
+    "user_id": "f2669e0c-8400-4bc2-a320-21841dd18b90"
+}
+
+DELETE call
+
+{
+    "video_id": "0427e6b4-5b41-4902-92df-1b66fe8f23de",
+    "date_added": "2020-08-20T17:05:04.341+00:00",
+    "description": "hey i am checking 102th",
+    "location": "https://www.youtube.com/watch?v=w0l7ZWFcEMQ",
+    "name": "DATASTAX Developer Workshop - Building Java MicroServices for Apache Cassandra (6/17)",
+    "user_id": "f2669e0c-8400-4bc2-a320-21841dd18b90"
+}
+
+COMMENT_BY_VIDEO Table
+
+POST call
+
+{
+    "commentsByVideoKey": {
+        "video_id": "20499235-b33e-4e8c-addf-c19e19e7b802"
+    },
+    "comment": "hi!!! i am commenting",
+    "user_id": "db075906-1cd3-4d9d-be64-1166a0292ada"
+}
+
+PUT call
+
+{
+    "commentsByVideoKey": {
+        "video_id": "20499235-b33e-4e8c-addf-c19e19e7b802",
+        "comment_id": "943b7ba8-e1de-11ea-87d0-0242ac130003"
+    },
+    "comment": "hi!!! i am updating the comment",
+    "user_id": "db075906-1cd3-4d9d-be64-1166a0292ada"
+}
+
+DELETE call
+
+{
+    "video_id": "20499235-b33e-4e8c-addf-c19e19e7b812",
+    "comment_id": "943b7ba8-e1de-11ea-87d0-0242ac130103"
+}

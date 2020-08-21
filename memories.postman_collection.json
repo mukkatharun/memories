@@ -138,7 +138,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"video_id\": \"71d936b9-79d0-4933-85a3-a643861d4811\",\n    \"date_added\": \"2020-08-17T04:00:27.538+00:00\",\n    \"description\": \"Sadhguru answers a question about the Ram Janmabhumi in Ayodhya, and speaks about the laying of the foundation stone for the temple and its significance for the people of India\",\n    \"location\": \"https://www.youtube.com/watch?v=w0l7ZWFcEMQ\",\n    \"name\": \"Why Building The Ram Temple Matters - Sadhguru\",\n    \"user_id\": \"f2669e0c-8400-4bc2-a320-21841dd18a70\"\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -146,7 +146,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/users/15bb239c-a9ff-4a9a-9e36-3b58ef6b1580",
+							"raw": "http://localhost:8080/api/users/f2669e0c-8400-4bc2-a320-21841dd18b90",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -155,7 +155,7 @@
 							"path": [
 								"api",
 								"users",
-								"15bb239c-a9ff-4a9a-9e36-3b58ef6b1580"
+								"f2669e0c-8400-4bc2-a320-21841dd18b90"
 							]
 						}
 					},
